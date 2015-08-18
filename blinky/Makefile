@@ -211,6 +211,9 @@ ULIBS =
 #
 # End of user defines
 ##############################################################################
-
 RULESPATH = $(CHIBIOS)/os/common/ports/ARMCMx/compilers/GCC
 include $(RULESPATH)/rules.mk
+
+flash:
+	st-flash write build/$(PROJECT).bin 0x08000000
+
