@@ -1,0 +1,9 @@
+*.elf
+*.hex
+*.o
+*.d
+*.eeprom
+*.map
+*.bin
+*.pyc
+
