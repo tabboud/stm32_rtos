@@ -82,6 +82,7 @@ SRC+=stm32f4xx_usart.c
 # Main Source Files
 # APP_MAIN_SRC_C
 SRC+=main.c
+SRC+=mptask.c
 
 CDEFS=-DUSE_STDPERIPH_DRIVER
 CDEFS+=-DSTM32F4XX

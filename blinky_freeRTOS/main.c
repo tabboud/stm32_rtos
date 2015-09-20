@@ -4,6 +4,7 @@
 #include "stdio.h"
 #include "stm32f4xx_usart.h"
 #include "stm32f4xx_gpio.h"
+#include "mptask.h"
 
 
 void init_GPIO(void){
@@ -38,6 +39,8 @@ void vTestBlinky(void* p){
   vTaskDelete(NULL);
 }
 
+TaskHandle_t xHandler = NULL;
+
 int main(void) {
   uint8_t ret;
 
@@ -53,7 +56,7 @@ int main(void) {
   init_GPIO();
 
   // Create a task
-  ret = xTaskCreate(vTestBlinky, "BLINKY", configMINIMAL_STACK_SIZE, NULL, 1, NULL);
+  ret = xTaskCreate(TASK_Micropython, "MicroPy", MICROPY_TASK_STACK_SIZE, NULL, MICROPY_TASK_PRIORITY, xHandler);
 
   if (ret == pdTRUE) {
     // printf("System Started!\n");
